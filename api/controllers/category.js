@@ -33,13 +33,20 @@ function addCategory(req, res){
    }
 }
 
-/*
+
 function getCategories(req, res){
-   Category.find()
+   Category.find().exec((err, categories) => {
+      if(err) return res.status(500).send({error: 'Error en la petición'});
+
+      if(!categories) return res.status(404).send({error: 'No se encontraron categorías'});
+
+      return res.status(200).send({categories});
+   });
 }
-*/
+
 
 module.exports = {
    test,
-   addCategory
+   addCategory,
+   getCategories
 }
