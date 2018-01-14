@@ -89,12 +89,7 @@ function deleteProduct(req, res){
    });
 }
 
-/*
-function editProduct(req, res){
-   var params = req.body;
 
-}
-*/
 
 module.exports = {
    prueba,
@@ -103,5 +98,4 @@ module.exports = {
    getAllProducts,
    getProductsByCat,
    deleteProduct
-//   editProduct
 }
