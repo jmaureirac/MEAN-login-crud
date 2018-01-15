@@ -89,9 +89,23 @@ function deleteProduct(req, res){
    });
 }
 
+
 /**
- *
+ * TODO: update image
  */
+function editProduct(req, res){
+   var update = req.body;
+   var product_id = req.params.id;
+
+   Product.findByIdAndUpdate(product_id, update, {new: true}, (err, productUpdated) => {
+      if(err) return res.status(500).send({error: 'Error en la petición'});
+
+      if(!productUpdated) return res.status(404).send({error: 'No se pudo actualizar el producto'});
+
+      return res.status(200).send({ product: productUpdated });
+   });
+
+}
 
 module.exports = {
    prueba,
@@ -99,5 +113,6 @@ module.exports = {
    getProduct,
    getAllProducts,
    getProductsByCat,
-   deleteProduct
+   deleteProduct,
+   editProduct
 }

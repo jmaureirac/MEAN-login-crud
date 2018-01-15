@@ -13,7 +13,7 @@ api.get('/product/:id', user_auth.auth, ProductController.getProduct);
 api.get('/products', user_auth.auth, ProductController.getAllProducts);
 api.get('/products-cat/:id', user_auth.auth, ProductController.getProductsByCat);
 api.delete('/product/:id', user_auth.auth, ProductController.deleteProduct);
-
+api.put('/update-prod/:id', user_auth.auth, ProductController.editProduct);
 
 
 module.exports = api;
